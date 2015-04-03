@@ -13,3 +13,7 @@ wget https://bootstrap.pypa.io/get-pip.py && python get-pip.py
 
 touch /var/setup-script-run
 fi
+
+wget https://raw.githubusercontent.com/idguk/playbooks/master/web-server.yml
+
+sudo ansible-playbook web-server.yml
