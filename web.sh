@@ -18,4 +18,4 @@ sudo rm web-server.yml
 
 wget https://raw.githubusercontent.com/idguk/playbooks/master/web-server.yml
 
-sudo ansible-playbook web-server.yml -i localhost
+sudo ansible-playbook web-server.yml -i ',localhost'
