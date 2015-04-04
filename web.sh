@@ -16,4 +16,4 @@ fi
 
 wget https://raw.githubusercontent.com/idguk/playbooks/master/web-server.yml
 
-sudo ansible-playbook web-server.yml
+sudo ansible-playbook web-server.yml -i localhost
