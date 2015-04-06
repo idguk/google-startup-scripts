@@ -14,9 +14,14 @@ wget https://bootstrap.pypa.io/get-pip.py && python get-pip.py
 touch /var/setup-script-run
 fi
 
-SITE_PREFIX=$(curl "http://metadata.google.internal/computeMetadata/v1/in
-stance/attributes/site" -H "Metadata-Flavor: Google")
-export SITE_PREFIX 
+SITE_PREFIX=$(curl "http://metadata.google.internal/computeMetadata/v1/instance/attributes/site" -H "Metadata-Flavor: Google")
+#export SITE_PREFIX 
+
+sudo mkdir -p /etc/ansible/facts.d/
+rm -f ~/site
+touch ~/site
+printf "[info]\nprefix=$SITE_PREFIX\n" > site
+sudo mv ~/site /etc/ansible/facts.d/site
 
 sudo rm web-server.yml
 
