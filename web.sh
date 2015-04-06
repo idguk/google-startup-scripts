@@ -14,6 +14,10 @@ wget https://bootstrap.pypa.io/get-pip.py && python get-pip.py
 touch /var/setup-script-run
 fi
 
+SITE_PREFIX=$(curl "http://metadata.google.internal/computeMetadata/v1/in
+stance/attributes/site" -H "Metadata-Flavor: Google")
+export SITE_PREFIX 
+
 sudo rm web-server.yml
 
 wget https://raw.githubusercontent.com/idguk/playbooks/master/web-server.yml
