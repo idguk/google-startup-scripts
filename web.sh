@@ -18,10 +18,10 @@ SITE_PREFIX=$(curl "http://metadata.google.internal/computeMetadata/v1/instance/
 #export SITE_PREFIX 
 
 sudo mkdir -p /etc/ansible/facts.d/
-rm -f ~/site
-touch ~/site
-printf "[info]\nprefix=$SITE_PREFIX\n" > site
-sudo mv ~/site /etc/ansible/facts.d/site
+sudo rm -f /etc/ansible/facts.d/site.fact
+touch ~/site.fact
+printf "[info]\nprefix=$SITE_PREFIX\n" > site.fact
+sudo mv ~/site.fact /etc/ansible/facts.d/site.fact
 
 sudo rm web-server.yml
 
