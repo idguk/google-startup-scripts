@@ -23,7 +23,7 @@ touch ~/site.fact
 printf "[info]\nprefix=$SITE_PREFIX\n" > site.fact
 sudo mv ~/site.fact /etc/ansible/facts.d/site.fact
 
-sudo rm web-server.yml
+sudo rm -f web-server.yml
 
 wget https://raw.githubusercontent.com/idguk/playbooks/master/web-server.yml
 
