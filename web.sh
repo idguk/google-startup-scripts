@@ -19,7 +19,7 @@ SITE_PREFIX=$(curl "http://metadata.google.internal/computeMetadata/v1/instance/
 
 sudo mkdir -p /etc/ansible/facts.d/
 sudo rm -f /etc/ansible/facts.d/site.fact
-touch ~/site.fact
+#touch ~/site.fact
 printf "[info]\nprefix=$SITE_PREFIX\n" > site.fact
 sudo mv ~/site.fact /etc/ansible/facts.d/site.fact
 
