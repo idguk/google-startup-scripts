@@ -1,4 +1,5 @@
 #! /bin/bash
+#script run as root
 if [ ! -f "/var/setup-script-run" ] ; then
 #sudo apt-get update
 #sudo apt-get install -qy wget git
@@ -17,6 +18,7 @@ fi
 SITE_PREFIX=$(curl "http://metadata.google.internal/computeMetadata/v1/instance/attributes/site" -H "Metadata-Flavor: Google")
 #export SITE_PREFIX 
 
+sudo mkdir -p /etc/ansible/playbooks/
 sudo mkdir -p /etc/ansible/facts.d/
 sudo rm -f /etc/ansible/facts.d/site.fact
 #touch ~/site.fact
@@ -25,9 +27,6 @@ sudo mv /tmp/site.fact /etc/ansible/facts.d/site.fact
 
 sudo rm -f web-server.yml
 
-sudo touch ~/bob.txt
-touch ~/bill.txt
-
-wget https://raw.githubusercontent.com/idguk/playbooks/master/web-server.yml
+sudo wget -P /etc/ansible/playbooks https://raw.githubusercontent.com/idguk/playbooks/master/web-server.yml
 
 sudo ansible-playbook web-server.yml -i 'localhost,' --connection=local
