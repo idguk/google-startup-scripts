@@ -25,8 +25,8 @@ sudo rm -f /etc/ansible/facts.d/site.fact
 printf "[info]\nprefix=$SITE_PREFIX\n" > /tmp/site.fact
 sudo mv /tmp/site.fact /etc/ansible/facts.d/site.fact
 
-sudo rm -f web-server.yml
+cd /etc/ansible/playbooks
+rm -f web-server.yml
+wget https://raw.githubusercontent.com/idguk/playbooks/master/web-server.yml
 
-sudo wget -P /etc/ansible/playbooks https://raw.githubusercontent.com/idguk/playbooks/master/web-server.yml
-
-sudo ansible-playbook web-server.yml -i 'localhost,' --connection=local
+ansible-playbook web-server.yml -i 'localhost,' --connection=local
