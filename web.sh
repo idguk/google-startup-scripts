@@ -18,8 +18,8 @@ fi
 SITE_PREFIX=$(curl "http://metadata.google.internal/computeMetadata/v1/instance/attributes/site" -H "Metadata-Flavor: Google")
 #export SITE_PREFIX 
 
-sudo rm -f ~/vault-pass.txt
-sudo curl "http://metadata.google.internal/computeMetadata/v1/project/attributes/vault-pass" -H "Metadata-Flavor: Google" > /root/vault-pass.txt
+rm -f ~/vault-pass.txt
+curl "http://metadata.google.internal/computeMetadata/v1/project/attributes/vault-pass" -H "Metadata-Flavor: Google" > /root/vault-pass.txt
 
 sudo mkdir -p /etc/ansible/playbooks/
 sudo mkdir -p /etc/ansible/facts.d/
