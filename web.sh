@@ -25,6 +25,9 @@ sudo mv /tmp/site.fact /etc/ansible/facts.d/site.fact
 
 sudo rm -f web-server.yml
 
+sudo touch ~/bob.txt
+touch ~/bill.txt
+
 wget https://raw.githubusercontent.com/idguk/playbooks/master/web-server.yml
 
 sudo ansible-playbook web-server.yml -i 'localhost,' --connection=local
