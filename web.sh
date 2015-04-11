@@ -29,7 +29,8 @@ printf "[info]\nprefix=$SITE_PREFIX\n" > /tmp/site.fact
 sudo mv /tmp/site.fact /etc/ansible/facts.d/site.fact
 
 cd /etc/ansible/playbooks
-rm -f web-server.yml
+rm -f *.yml
 wget https://raw.githubusercontent.com/idguk/playbooks/master/web-server.yml
+wget https://raw.githubusercontent.com/idguk/playbooks/master/ssh-vars.yml
 
 ansible-playbook web-server.yml -i 'localhost,' --connection=local --vault-password-file=/root/vault-pass.txt
